@@ -1,2 +1,2 @@
 # JavaSE_learning_code
-JavaSE学习代码
+JavaSE学习时的练习代码
