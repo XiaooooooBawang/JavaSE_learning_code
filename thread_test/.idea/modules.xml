@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ThreadTest/ThreadTest.iml" filepath="$PROJECT_DIR$/ThreadTest/ThreadTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThreadTestCallable/ThreadTestCallable.iml" filepath="$PROJECT_DIR$/ThreadTestCallable/ThreadTestCallable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ThreadTestRunnable/ThreadTestRunnable.iml" filepath="$PROJECT_DIR$/ThreadTestRunnable/ThreadTestRunnable.iml" />
+      <module fileurl="file://$PROJECT_DIR$/thread_test.iml" filepath="$PROJECT_DIR$/thread_test.iml" />
+    </modules>
+  </component>
+</project>
