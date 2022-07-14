@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+
+    <!--欢迎页面，由上到下逐个查找，一旦找到，则马上显示，不会再向下查找，这里会找到index.jsp-->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>default.html</welcome-file>
+        <welcome-file>default.htm</welcome-file>
+        <welcome-file>default.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!-- context初始化参数,configtest02和03用 -->
+    <context-param>
+        <param-name>MySQLDriver</param-name>
+        <param-value>com.mysql.jdbc.Driver</param-value>
+    </context-param>
+    <context-param>
+        <param-name>dbURL</param-name>
+        <param-value>jdbc:mysql:</param-value>
+    </context-param>
+
+
+    <!-- 创建一个servlet实例 -->
+    <servlet>
+        <!-- 给servlet取一个名字，该名字需与servlet-mapping中的servlet-name一致 -->
+        <servlet-name>firstServlet</servlet-name>
+        <!-- servlet的路径，即servlet包名+类名 -->
+        <servlet-class>myServlet.FirstServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>configServlet01</servlet-name>
+        <servlet-class>myServlet.ConfigTest01</servlet-class>
+        <init-param>
+            <param-name>userName</param-name>
+            <param-value>Xiaoooooobawang</param-value>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>configTest02</servlet-name>
+        <servlet-class>myServlet.ConfigTest02</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>configTest03</servlet-name>
+        <servlet-class>myServlet.ConfigTest03</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>httpTest01</servlet-name>
+        <servlet-class>myServlet.HttpTest01</servlet-class>
+    </servlet>
+
+
+    <!-- 给servlet一个可以访问的URL地址 -->
+    <servlet-mapping>
+        <!-- servlet的名字，与 servlet中的servlet-name一致-->
+        <servlet-name>firstServlet</servlet-name>
+        <!-- URL地址:http://locahost:8080/my_servlet_test/test
+        my_servlet_test 是在关联Tomcat中配置了application context(项目上下文)-->
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>configServlet01</servlet-name>
+        <url-pattern>/config01</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>configTest02</servlet-name>
+        <!--一个Servlet可以对应多个url-pattern-->
+        <url-pattern>/config02</url-pattern>
+        <url-pattern>/more/config02</url-pattern><!--上两个都是精确路径模式-->
+        <url-pattern>/tongpei/*</url-pattern><!--通配符路径模式-->
+        <!--<url-pattern>/*</url-pattern>
+        <url-pattern>/</url-pattern>这两个都是全路径模式，一般是不会将其指定为/*或/的，
+        一旦有一个 Servlet 的url-patter被设置为了/*或/，则整个应用的静态资源将可能无法正常显示-->
+        <url-pattern>*.do</url-pattern><!--后缀名模式-->
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>configTest03</servlet-name>
+        <url-pattern>/config03</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>httpTest01</servlet-name>
+        <url-pattern>/httptest01</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>

@@ -4,22 +4,22 @@ public class XidianStudent extends Student implements Developer{
     }
     @Override
     public void play() {
-        System.out.println(super.name+"看似在玩，其实他还在卷");
+        System.out.println(this.name+"看似在玩，其实他还在卷");
     }
     @Override
     public void writeBug() {
-        System.out.println(super.name+"在写bug");
+        System.out.println(this.name+"在写bug");
     }
     @Override
     public void debug() {
-        System.out.println(super.name+"在改bug");
+        System.out.println(this.name+"在改bug");
     }
     public void haveGirlfriend(){
-        System.out.println(super.name+"有女朋友");
+        System.out.println(this.name+"有女朋友");
     }
     //重载
     public void haveGirlfriend(int n){
-         System.out.println(super.name+"有"+n+"个女朋友，渣男！");
+         System.out.println(this.name+"有"+n+"个女朋友，渣男！");
      }
     public static void main(String[] args){
         XidianStudent xduer = new XidianStudent(123, "邹俊智", "男");
