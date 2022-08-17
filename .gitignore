@@ -1,3 +1,4 @@
-JDBC/
 tempTest/
 */out/
+**/*.iml
+**/.idea
